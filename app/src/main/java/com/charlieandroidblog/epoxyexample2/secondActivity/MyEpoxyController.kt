@@ -13,9 +13,17 @@ class MyEpoxyController : EpoxyController() {
 
     override fun buildModels() {
         items.forEach { item ->
+            if (item.first.equals("varus")){
+                MyEpoxyModel2(item)
+                    .id(items.indexOf(item))
+                    .addTo(this)
+
+            }else{
+
             MyEpoxyModel(item)
                 .id(items.indexOf(item))
                 .addTo(this)
+            }
         }
     }
 
